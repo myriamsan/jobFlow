@@ -27,12 +27,6 @@ public class UserController {
         return userService.findAll();
     }
 
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User userCreated = userService.saveOrUpdate(user);
-        return new ResponseEntity<>(userCreated, HttpStatus.CREATED);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         User user = userService.findById(id);
